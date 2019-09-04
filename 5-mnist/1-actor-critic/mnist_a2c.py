@@ -1,4 +1,3 @@
-import gym
 import datetime
 
 import gym
@@ -206,7 +205,11 @@ if __name__ == "__main__":
             agent.actor.save_weights("./save_model/mnist_actor.h5")
             agent.critic.save_weights("./save_model/mnist_critic.h5")
 
-    plt.figure(9)
-    plt.plot(episodes, scores)
+    from scipy.signal import savgol_filter
+
+    yhat = savgol_filter(scores, 51, 1)  # window size 51, polynomial order 3
+    plt.figure()
+    plt.plot(scores)
+    plt.plot(yhat)
     plt.show()
     print("End")

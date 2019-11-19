@@ -1,7 +1,8 @@
 import sys
+
 import gym
-import pylab
 import numpy as np
+import pylab
 from keras.layers import Dense
 from keras.models import Sequential
 from keras.optimizers import Adam
@@ -13,7 +14,7 @@ EPISODES = 1000
 class A2CAgent:
     def __init__(self, state_size, action_size):
         # if you want to see Cartpole learning, then change to True
-        self.render = False
+        self.render = True
         self.load_model = False
         # get size of state and action
         self.state_size = state_size

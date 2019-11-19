@@ -1,22 +1,23 @@
-import gym
 import random
+from collections import deque
+
+import gym
 import numpy as np
 import tensorflow as tf
-from collections import deque
-from skimage.color import rgb2gray
-from skimage.transform import resize
-from keras.models import Sequential
-from keras.optimizers import RMSprop
+from keras import backend as K
 from keras.layers import Dense, Flatten
 from keras.layers.convolutional import Conv2D
-from keras import backend as K
+from keras.models import Sequential
+from keras.optimizers import RMSprop
+from skimage.color import rgb2gray
+from skimage.transform import resize
 
 EPISODES = 50000
 
 
 class DDQNAgent:
     def __init__(self, action_size):
-        self.render = False
+        self.render = True
         self.load_model = False
         # environment settings
         self.state_size = (84, 84, 4)

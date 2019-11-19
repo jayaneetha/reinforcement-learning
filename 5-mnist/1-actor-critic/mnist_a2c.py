@@ -107,7 +107,6 @@ class MNISTEnv(gym.Env):
     def __init__(self) -> None:
         super().__init__()
         self.itr = 0
-
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
         filtered_x_temp = []
